@@ -117,3 +117,85 @@ console.log(students.length)
 for (var i = 0;i < students.length; i++) {
   console.log(students[i].name)
 }
+
+
+
+
+
+
+
+/**
+ * 
+ * Buoi 4
+ */
+
+
+var numbers = [5 , 12 ,10 , 20, 21];
+var magicNumber = numbers[4];
+var result = 0;
+for (var index = 0; index < numbers.length; index++) {
+  result += numbers[index];
+}
+console.log(result);
+
+
+
+
+var studentsB4 = [
+  studentA,
+  studentB,
+  studentC
+]
+
+// khai báo function
+function thongKeSoLuongHocSinh(){
+  // hãy đếm số lượng học sinh từ mảng studentsB4
+  return studentsB4.length;
+} 
+
+
+
+console.log("Số lượng HS", thongKeSoLuongHocSinh())
+
+
+// ? in hoặc render danh sách học sinh ra HTML
+
+// document.getElementById("danhSachHocSinh").innerHTML = `
+//   <button>Hi</button>
+// `
+
+
+
+// DOM ELEMENT 
+
+// thêm 1 học sinh vào lớp
+
+var khoiStudent = {
+  name: 'Khoi 1'
+}
+
+studentsB4.push(khoiStudent)
+
+document.getElementById('danhSachHocSinh').innerHTML = `
+  <span>SL học sinh: ${thongKeSoLuongHocSinh()}</span>
+`
+
+document.getElementById('danhSachHocSinh2').innerHTML = `
+  <span>SL HS: ${thongKeSoLuongHocSinh()}</span>
+`
+
+
+var studentKhoi_1 = {
+  name: 'Minh Khoi'
+}
+var studentKhoi_2 = {
+  name: 'Minh Khoi 2'
+}
+
+var arrKhoi = [
+  studentKhoi_1,
+  studentKhoi_2
+]
+
+
+console.log('for khoi', arrKhoi);

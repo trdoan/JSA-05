@@ -1,0 +1,12 @@
+/* button {
+  background: pink;
+  border: none;
+  padding: 10px 20px;
+  color: white;
+  border-radius: 12px;
+} */
+
+.myCarousel {
+  height: 200px;
+  width: 800px;
+}
