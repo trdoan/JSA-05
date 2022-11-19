@@ -94,3 +94,11 @@ document.getElementById("btnLogin").addEventListener("click",handleLogin)
  * B5: so sanh du lieu nguoi dung nhap vao voi danh sach user co trong he thong
  * B6: neu ko tim email nao? => in ra cai alert "ko tim thay email"
  */
+
+// BTVN B6: lam chuc nang dang ky
+/**
+ * B1: co form dang ky
+ * B2: lay duoc du lieu tu cac o input. Chan su kien load trang
+ * B3: luu danh sach user dang ky vao local storage
+ */
+
