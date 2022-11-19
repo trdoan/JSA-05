@@ -1,6 +1,6 @@
 var user01 = {
   email: "a@gmail.com",
-  pass: "123"
+  password: "123"
 }
 var user02 = {
   email: "b@gmail.com",
@@ -28,20 +28,32 @@ function handleLogin(event){
   var email = document.getElementById("emailInput").value;
   // console.log(email, password)
   var userDB;
+  var isValid;
   for (var index = 0; index < accounts.length; index++) {
     if(accounts[index].email === email){
       userDB = accounts[index];
     }
     
   }
+  var notification = getId("notification");
   if(!userDB){
     // console.log("Email nay chua duoc dang ki")
-    var notification = getId("notification");
     notification.innerText = notifications[0];
     notification.classList.remove("d-none");
+    notification.className = 'alert alert-warning';
   }
   else{
-    console.log(userDB)
+    if(password === userDB.password){
+      notification.classList.remove("d-none");
+      notification.className = 'alert alert-success';
+      notification.innerText = `DANG NHAP THANH CONG`;
+    }
+    else {
+      notification.classList.remove("d-none");
+      notification.innerText = 'Sai mat khau roi be oi';
+      notification.className = 'alert alert-danger';
+    }
+    // alert("dang nhap thanh cong")
   }
   
 }
