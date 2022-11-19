@@ -18,6 +18,23 @@ const notifications = [
 function getId (id){
   return document.getElementById(id);
 }
+var isLogin = localStorage.getItem("isLogin")
+console.log(isLogin)
+if(isLogin === "true"){
+  console.log('vao if')
+  getId("formLogin").classList.add("d-none");
+  getId("body").innerHTML = `
+  <div class="alert alert-info" role="alert">
+    Da dang nhap vao website
+  </div>
+  `
+}
+// check login ?
+
+  // console.log('vao if')
+  // getId("formLogin").classList.add = "d-done";
+// }
+
 // khai bao ham xu ly login
 function handleLogin(event){ 
   // chan su kien tai lai trang
@@ -47,6 +64,9 @@ function handleLogin(event){
       notification.classList.remove("d-none");
       notification.className = 'alert alert-success';
       notification.innerText = `DANG NHAP THANH CONG`;
+
+      // luu lai gia tri login
+      localStorage.setItem("isLogin", true)
     }
     else {
       notification.classList.remove("d-none");
