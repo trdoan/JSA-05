@@ -1,6 +1,7 @@
-var promise = fetch(
-  "https://6381e5a753081dd5498ac0a5.mockapi.io/17/stufftosell"
-);
+var promise = fetch("https://6044315ca20ace001728eb74.mockapi.io/api/phones");
+var arrSanPham;
+var itemPicked = [];
+
 function renderRate(rate) {
   var htmlString = "";
   for (var index = 0; index < rate; index++) {
@@ -8,11 +9,17 @@ function renderRate(rate) {
   }
   return htmlString;
 }
+function addItem(id) {
+  var sanPhamDuocChon = arrSanPham.find((item) => item.id == id);
+  itemPicked.push(sanPhamDuocChon);
+  document.getElementById("myCart").innerHTML = itemPicked.length;
+}
 promise
   .then(function (response) {
     return response.json();
   })
   .then(function (data) {
+    arrSanPham = data;
     var htmlString = "";
     for (let index = 0; index < data.length; index++) {
       var rateHTMLString = renderRate(data[index].rate);
@@ -25,14 +32,19 @@ promise
           <div class="card-body p-4">
               <div class="text-center">
                   <!-- Product name-->
-                  <h5 class="fw-bolder">${data[index].Type}</h5>
+                  <h5 class="fw-bolder">${data[index].name}</h5>
                   <!-- Product price-->
                   $40.00 - $80.00
               </div>
           </div>
           <!-- Product actions-->
           <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-              <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View options</a></div>
+               <div class="text-center w-100">
+                <span class="btn btn-outline-dark mt-auto">View options</span>
+               </div>
+               <div class="text-center w-100" onclick="addItem(${data[index].id})">
+               <span class="btn btn-outline-dark mt-auto">Add to cart</span>
+              </div>
           </div>
       </div>
   </div>
